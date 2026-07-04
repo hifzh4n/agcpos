@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "agcpos",
+  "workers_dev": true,
+  "compatibility_date": "2026-07-04",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "agcpos"
+    }
+  ],
+  "images": {
+    "binding": "IMAGES"
+  }
+  // If you do not want to use workers.dev, register a custom domain
+  // in Cloudflare and replace workers_dev with:
+  // "routes": [{ "pattern": "pos.example.com", "custom_domain": true }]
+}
