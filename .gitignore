@@ -18,6 +18,9 @@
 /.open-next/
 /out/
 .wrangler/
+public/sw.js
+public/workbox-*.js
+wrangler-*.log
 
 # production
 /build

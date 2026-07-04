@@ -9,9 +9,9 @@ const withPWA = withPWAInit({
 });
 
 const nextConfig: NextConfig = {
-  reactCompiler: true,
-  turbopack: {},
+  output: "export",
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

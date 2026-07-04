@@ -1,28 +1,15 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "main": ".open-next/worker.js",
+  "main": "cloudflare-worker.js",
   "name": "agcpos",
   "workers_dev": false,
   "compatibility_date": "2026-07-04",
-  "compatibility_flags": [
-    "nodejs_compat",
-    "global_fetch_strictly_public"
-  ],
   "observability": {
     "enabled": true
   },
   "assets": {
-    "directory": ".open-next/assets",
+    "directory": "out",
     "binding": "ASSETS"
-  },
-  "services": [
-    {
-      "binding": "WORKER_SELF_REFERENCE",
-      "service": "agcpos"
-    }
-  ],
-  "images": {
-    "binding": "IMAGES"
   }
   // Add a Cloudflare custom domain when ready:
   // "routes": [{ "pattern": "pos.example.com", "custom_domain": true }]

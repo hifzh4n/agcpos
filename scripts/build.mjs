@@ -1,15 +1,13 @@
 import { spawnSync } from "node:child_process";
+import { rmSync } from "node:fs";
 
-const isInsideOpenNext = process.env.AGCPOS_OPENNEXT_BUILD === "1";
-const args = isInsideOpenNext ? ["next", "build"] : ["opennextjs-cloudflare", "build"];
+rmSync(".next", { force: true, recursive: true, maxRetries: 3, retryDelay: 500 });
+rmSync("out", { force: true, recursive: true, maxRetries: 3, retryDelay: 500 });
 
-const result = spawnSync("npx", ["--yes", ...args], {
+const result = spawnSync("npx", ["--yes", "next", "build", "--webpack"], {
   stdio: "inherit",
   shell: true,
-  env: {
-    ...process.env,
-    AGCPOS_OPENNEXT_BUILD: isInsideOpenNext ? process.env.AGCPOS_OPENNEXT_BUILD : "1",
-  },
+  env: process.env,
 });
 
 process.exit(result.status ?? 1);
