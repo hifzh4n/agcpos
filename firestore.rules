@@ -1,0 +1,19 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function owner() {
+      return request.auth != null
+        && request.auth.uid == "22iJVc3RwaOdHrCJl6P9vaRL3f32";
+    }
+
+    match /settings/app {
+      allow read: if true;
+      allow write: if owner();
+    }
+
+    match /{document=**} {
+      allow read, write: if owner();
+    }
+  }
+}

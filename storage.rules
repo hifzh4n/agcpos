@@ -1,0 +1,23 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    function owner() {
+      return request.auth != null
+        && request.auth.uid == "22iJVc3RwaOdHrCJl6P9vaRL3f32";
+    }
+
+    match /settings/logo/{fileName} {
+      allow read: if true;
+      allow write: if owner();
+    }
+
+    match /products/{productId}/{fileName} {
+      allow read, write: if owner();
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

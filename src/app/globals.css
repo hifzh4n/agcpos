@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-poppins);
+}
+
+:root {
+  --background: #fff8e1;
+  --foreground: #111111;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --muted: #6b7280;
+  --primary: #facc15;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --warning: #f97316;
+}
+
+.dark {
+  --background: #111111;
+  --foreground: #ffffff;
+  --card: #1f1f1f;
+  --border: #333333;
+  --muted: #a1a1aa;
+  --primary: #facc15;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --warning: #fb923c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  scrollbar-width: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-caps-lock-indicator {
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.tap {
+  min-height: 48px;
+}

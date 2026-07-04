@@ -1,0 +1,17 @@
+{
+  "name": "AGCPOS",
+  "short_name": "AGCPOS",
+  "description": "Ayam Gunting Cheese online POS",
+  "start_url": "/pos",
+  "display": "standalone",
+  "background_color": "#FFF8E1",
+  "theme_color": "#FACC15",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
